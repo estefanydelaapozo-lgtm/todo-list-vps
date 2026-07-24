@@ -2,147 +2,168 @@
    ESTILOS GENERALES
 ========================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 40px 16px;
-    background: #f2f4f7;
+body{
+    background:#f2f4f7;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:40px 20px;
 }
 
 /* ==========================
    CONTENEDOR
 ========================== */
 
-.container {
-    width: 100%;
-    max-width: 480px;
-    padding: 32px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+.container{
+    width:100%;
+    max-width:520px;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-h1 {
-    margin-bottom: 24px;
-    color: #1f2933;
-    font-size: 1.6rem;
-    text-align: center;
+h1{
+    text-align:center;
+    color:#1f2937;
+    margin-bottom:25px;
+    font-size:2rem;
 }
 
 /* ==========================
    FORMULARIO
 ========================== */
 
-.task-form {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
+.task-form{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
 }
 
-.task-form input {
-    flex: 1;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.95rem;
+.task-form input{
+    flex:1;
+    padding:12px 15px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
 }
 
-.task-form button {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 8px;
-    background: #2563eb;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: background 0.2s ease;
+.task-form input:focus{
+    border-color:#2563eb;
 }
 
-.task-form button:hover {
-    background: #1d4ed8;
+.task-form button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.task-form button:hover{
+    background:#1d4ed8;
 }
 
 /* ==========================
    FILTRO
 ========================== */
 
-.filter-input {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.9rem;
+.filter-input{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-size:15px;
+    outline:none;
+}
+
+.filter-input:focus{
+    border-color:#2563eb;
 }
 
 /* ==========================
-   LISTA DE TAREAS
+   LISTA
 ========================== */
 
-.task-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
+.task-list{
+    list-style:none;
 }
 
-.task-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+.task-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:10px;
 }
 
-.task-title {
-    flex: 1;
-    font-size: 0.95rem;
-    word-break: break-word;
+.task-title{
+    flex:1;
+    word-break:break-word;
 }
 
-.task-item.completed .task-title {
-    color: #9ca3af;
-    text-decoration: line-through;
+.task-item.completed .task-title{
+    text-decoration:line-through;
+    color:#9ca3af;
+}
+
+.task-item button{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    padding:6px;
+    border-radius:6px;
+}
+
+.edit-btn:hover{
+    background:#dbeafe;
+}
+
+.delete-btn:hover{
+    background:#fee2e2;
 }
 
 /* ==========================
-   BOTONES
+   MENSAJE
 ========================== */
 
-.task-item button {
-    padding: 4px 6px;
-    border: none;
-    border-radius: 6px;
-    background: transparent;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.task-item .edit-btn:hover {
-    background: #dbeafe;
-}
-
-.task-item .delete-btn:hover {
-    background: #fee2e2;
+.empty-message{
+    text-align:center;
+    color:#9ca3af;
+    margin-top:20px;
 }
 
 /* ==========================
-   MENSAJE VACÍO
+   RESPONSIVE
 ========================== */
 
-.empty-message {
-    margin-top: 20px;
-    color: #9ca3af;
-    font-size: 0.9rem;
-    text-align: center;
+@media (max-width:520px){
+
+    .container{
+        padding:20px;
+    }
+
+    .task-form{
+        flex-direction:column;
+    }
+
+    .task-form button{
+        width:100%;
+    }
+
 }
