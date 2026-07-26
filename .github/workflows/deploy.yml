@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Setup Tailscale
         uses: tailscale/github-action@v2
         with:
@@ -19,18 +16,7 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
 
-      - name: Deploy via SSH + rsync
-        uses: burnett01/rsync-deployments@7.0.1
-        with:
-          switches: -avz --delete
-          path: backend/ frontend/
-          remote_path: /home/${{ secrets.VM_USER }}/todo-list-vps/
-          remote_host: ${{ secrets.VM_HOST }}
-          remote_port: ${{ secrets.VPS_PORT }}
-          remote_user: ${{ secrets.VM_USER }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Restart backend and copy frontend
+      - name: Deploy via SSH (git pull + restart)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VM_HOST }}
@@ -38,7 +24,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
-            sudo cp -r /home/${{ secrets.VM_USER }}/todo-list-vps/frontend/* /var/www/html/
-            cd /home/${{ secrets.VM_USER }}/todo-list-vps/backend
+            cd ~/todo-list-vps
+            git pull origin main
+            sudo cp -r ~/todo-list-vps/frontend/* /var/www/html/
+            cd ~/todo-list-vps/backend
             npm install
             pm2 restart todo-backend
