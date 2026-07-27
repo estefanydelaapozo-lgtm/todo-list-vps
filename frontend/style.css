@@ -7,20 +7,32 @@
     font-family:'Poppins',sans-serif;
 }
 
+
+/* ===== BODY ===== */
+
 body{
-    background:#f4f7fb;
+
+    background:linear-gradient(135deg,#f3e8ff,#ede9fe,#fae8ff);
+
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     padding:25px;
+
 }
+
 
 /* ===== CONTENEDOR ===== */
 
 .container{
 
     width:100%;
+
     max-width:650px;
 
     background:#ffffff;
@@ -30,34 +42,41 @@ body{
     padding:35px;
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.08);
+    0 15px 40px rgba(124,58,237,.15);
 
 }
+
 
 /* ===== HEADER ===== */
 
 header{
 
     display:flex;
+
     align-items:center;
+
     gap:18px;
 
     margin-bottom:30px;
 
 }
 
+
 .logo{
 
     width:65px;
+
     height:65px;
 
     border-radius:18px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    background:linear-gradient(135deg,#5b8cff,#7a5cff);
+    background:linear-gradient(135deg,#c084fc,#7c3aed);
 
     color:white;
 
@@ -65,23 +84,27 @@ header{
 
 }
 
+
 header h1{
 
-    color:#1f2937;
+    color:#6d28d9;
 
     font-size:30px;
 
 }
 
+
 header p{
 
-    color:#7b8794;
+    color:#8b5cf6;
 
     margin-top:5px;
 
 }
 
+
 /* ===== BIENVENIDA ===== */
+
 
 .welcome{
 
@@ -89,21 +112,25 @@ header p{
 
 }
 
+
 .welcome h2{
 
-    color:#374151;
+    color:#7c3aed;
 
     margin-bottom:6px;
 
 }
 
+
 .welcome p{
 
-    color:#8a94a6;
+    color:#a78bfa;
 
 }
 
-/* ===== FORM ===== */
+
+/* ===== FORMULARIO ===== */
+
 
 .task-form{
 
@@ -115,6 +142,7 @@ header p{
 
 }
 
+
 .task-form input{
 
     flex:1;
@@ -125,7 +153,7 @@ header p{
 
     border-radius:15px;
 
-    background:#f3f5f8;
+    background:#faf5ff;
 
     outline:none;
 
@@ -135,13 +163,16 @@ header p{
 
 }
 
+
 .task-form input:focus{
 
-    background:#ffffff;
+    background:white;
 
-    box-shadow:0 0 0 3px rgba(91,140,255,.18);
+    box-shadow:
+    0 0 0 3px rgba(139,92,246,.20);
 
 }
+
 
 .task-form button{
 
@@ -153,7 +184,7 @@ header p{
 
     cursor:pointer;
 
-    background:#5b8cff;
+    background:linear-gradient(135deg,#a855f7,#7c3aed);
 
     color:white;
 
@@ -163,13 +194,18 @@ header p{
 
 }
 
+
 .task-form button:hover{
 
-    background:#4378ff;
+    background:#6d28d9;
+
+    transform:translateY(-2px);
 
 }
 
+
 /* ===== BUSCADOR ===== */
+
 
 .search{
 
@@ -179,7 +215,7 @@ header p{
 
     gap:10px;
 
-    background:#f3f5f8;
+    background:#faf5ff;
 
     padding:14px 18px;
 
@@ -189,11 +225,13 @@ header p{
 
 }
 
+
 .search i{
 
-    color:#9ca3af;
+    color:#a78bfa;
 
 }
+
 
 .filter-input{
 
@@ -209,7 +247,9 @@ header p{
 
 }
 
-/* ===== TITULO ===== */
+
+/* ===== TITULO TAREAS ===== */
+
 
 .tasks-title{
 
@@ -217,15 +257,18 @@ header p{
 
 }
 
+
 .tasks-title h3{
 
-    color:#374151;
+    color:#6d28d9;
 
     font-size:18px;
 
 }
 
+
 /* ===== LISTA ===== */
+
 
 .task-list{
 
@@ -239,7 +282,10 @@ header p{
 
 }
 
-/* ===== TAREA ===== */
+
+
+/* ===== TARJETAS ===== */
+
 
 .task-item{
 
@@ -249,7 +295,7 @@ header p{
 
     gap:12px;
 
-    background:#fafbfc;
+    background:#fdfaff;
 
     padding:16px;
 
@@ -257,43 +303,55 @@ header p{
 
     transition:.3s;
 
-    border:1px solid #eef1f5;
+    border:1px solid #e9d5ff;
 
 }
+
 
 .task-item:hover{
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
-    box-shadow:0 8px 18px rgba(0,0,0,.06);
+    box-shadow:
+    0 10px 25px rgba(124,58,237,.15);
 
 }
+
 
 .task-title{
 
     flex:1;
 
-    color:#374151;
+    color:#4c1d95;
 
     font-size:15px;
 
 }
 
+
+
+/* ===== COMPLETADA ===== */
+
+
 .task-item.completed{
 
-    background:#eef8f2;
+    background:#f5f3ff;
 
 }
+
 
 .task-item.completed .task-title{
 
     text-decoration:line-through;
 
-    color:#8b97a7;
+    color:#a78bfa;
 
 }
 
+
+
 /* ===== BOTONES ===== */
+
 
 .task-item button{
 
@@ -313,31 +371,40 @@ header p{
 
 }
 
+
+
 .edit-btn{
 
-    color:#3b82f6;
+    color:#8b5cf6;
 
 }
+
 
 .edit-btn:hover{
 
-    background:#e8f0ff;
+    background:#ede9fe;
 
 }
+
+
 
 .delete-btn{
 
-    color:#ef4444;
+    color:#ec4899;
 
 }
+
 
 .delete-btn:hover{
 
-    background:#ffeaea;
+    background:#fce7f3;
 
 }
 
-/* ===== MENSAJE ===== */
+
+
+/* ===== MENSAJE VACIO ===== */
+
 
 .empty-message{
 
@@ -345,9 +412,10 @@ header p{
 
     padding:35px 20px;
 
-    color:#9ca3af;
+    color:#a78bfa;
 
 }
+
 
 .empty-message i{
 
@@ -357,72 +425,98 @@ header p{
 
 }
 
-/* ===== RESPONSIVE ===== */
+
+
+/* ===== RESPONSIVE TABLET ===== */
+
 
 @media(max-width:700px){
 
+
 .container{
 
-padding:25px;
+    padding:25px;
 
 }
+
 
 header{
 
-flex-direction:column;
+    flex-direction:column;
 
-text-align:center;
+    text-align:center;
 
 }
+
 
 .logo{
 
-margin-bottom:5px;
+    margin-bottom:5px;
 
 }
+
 
 .task-form{
 
-flex-direction:column;
+    flex-direction:column;
 
 }
+
 
 .task-form button{
 
-width:100%;
+    width:100%;
 
-height:52px;
+    height:52px;
+
+}
+
 
 }
 
-}
+
+
+/* ===== RESPONSIVE CELULAR ===== */
+
 
 @media(max-width:450px){
 
+
 body{
 
-padding:15px;
+    padding:15px;
 
 }
+
 
 .container{
 
-padding:20px;
+    padding:20px;
 
-border-radius:18px;
+    border-radius:20px;
 
 }
+
 
 header h1{
 
-font-size:25px;
+    font-size:25px;
 
 }
+
 
 .welcome h2{
 
-font-size:22px;
+    font-size:22px;
 
 }
+
+
+.task-item{
+
+    padding:14px;
+
+}
+
 
 }
