@@ -2,121 +2,131 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mi Lista de Tareas</title>
+    <title>Taskly | Mi Lista de Tareas</title>
 
-    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-    <main class="app">
+<div class="background">
 
-        <section class="container">
+    <div class="blur one"></div>
+    <div class="blur two"></div>
 
-            <!-- ENCABEZADO -->
+</div>
 
-            <header class="header">
+<div class="container">
 
-                <div class="logo">
+    <header>
 
-                    <i class="fa-solid fa-list-check"></i>
+        <div class="logo">
 
-                </div>
+            <i class="fa-solid fa-circle-check"></i>
 
-                <div>
+        </div>
 
-                    <h1>Mi Lista de Tareas</h1>
+        <div>
 
-                    <p>
-                        Organiza tus actividades de una forma rápida, sencilla y elegante.
-                    </p>
+            <h1>Taskly</h1>
 
-                </div>
+            <p>
+                Organiza tu día de una manera simple.
+            </p>
 
-            </header>
+        </div>
 
-            <!-- FORMULARIO -->
+    </header>
 
-            <form id="task-form" class="task-form">
+    <section class="welcome">
 
-                <div class="input-box">
+        <h2>Hola 👋</h2>
 
-                    <i class="fa-solid fa-pencil"></i>
+        <p>
+            Agrega tus tareas y mantén todo organizado.
+        </p>
 
-                    <input
-                        type="text"
-                        id="task-input"
-                        placeholder="Escribe una nueva tarea..."
-                        required>
+    </section>
 
-                </div>
+    <form id="task-form" class="task-form">
 
-                <button type="submit">
+        <input
+            id="task-input"
+            type="text"
+            placeholder="¿Qué necesitas hacer hoy?"
+            required>
 
-                    <i class="fa-solid fa-plus"></i>
+        <button type="submit">
 
-                    Agregar
+            <i class="fa-solid fa-plus"></i>
 
-                </button>
+        </button>
 
-            </form>
+    </form>
 
-            <!-- BUSCADOR -->
+    <div class="search">
 
-            <div class="filter-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+            id="filter-input"
+            class="filter-input"
+            type="text"
+            placeholder="Buscar tarea...">
 
-                <input
-                    type="text"
-                    id="filter-input"
-                    class="filter-input"
-                    placeholder="Buscar tarea...">
+    </div>
 
-            </div>
+    <section class="tasks">
 
-            <!-- LISTA -->
+        <div class="tasks-title">
 
-            <ul
-                id="task-list"
-                class="task-list">
+            <h3>
 
-            </ul>
+                <i class="fa-solid fa-list-check"></i>
 
-            <!-- MENSAJE -->
+                Mis tareas
 
-            <div
-                id="empty-message"
-                class="empty-message"
-                style="display:none;">
+            </h3>
 
-                <i class="fa-regular fa-face-smile-beam"></i>
+        </div>
 
-                <h2>No hay tareas</h2>
+        <ul
+            id="task-list"
+            class="task-list">
 
-                <p>
-                    Agrega una tarea para comenzar.
-                </p>
+        </ul>
 
-            </div>
+    </section>
 
-        </section>
+    <div
+        id="empty-message"
+        class="empty-message"
+        style="display:none;">
 
-    </main>
+        <i class="fa-regular fa-face-smile"></i>
 
-    <script src="script.js"></script>
+        <h2>Todo listo</h2>
+
+        <p>
+            No tienes tareas pendientes.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 
