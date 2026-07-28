@@ -1,12 +1,38 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const mysql = require('mysql2/promise');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Headers de seguridad con Helmet
+app.use(helmet({
+  contentSecurityPolicy: false, // Desactivado para permitir recursos externos en el frontend
+  crossOriginEmbedderPolicy: false
+}));
+
+// Rate limiting para prevenir ataques DDoS
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // máximo 100 peticiones por ventana
+  message: { error: 'Demasiadas peticiones, intenta más tarde' }
+});
+app.use('/api/', limiter);
+
+// CORS configurado (permitir configuración por env o localhost para desarrollo)
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',') 
+  : ['http://localhost', 'http://localhost:80', 'http://127.0.0.1'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 // Pool de conexiones a MySQL
