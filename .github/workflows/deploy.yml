@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH (git pull + restart)
+      - name: Deploy via SSH (Docker Compose)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VM_HOST }}
@@ -19,7 +19,4 @@ jobs:
           script: |
             cd ~/todo-list-vps
             git pull origin main
-            cp -r ~/todo-list-vps/frontend/* /var/www/html/
-            cd ~/todo-list-vps/backend
-            npm install
-            pm2 restart todo-backend
+            docker compose up -d --build
